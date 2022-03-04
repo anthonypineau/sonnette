@@ -10,15 +10,27 @@ public class Program {
         controller.OpenPin(10, PinMode.Output);
         controller.OpenPin(12, PinMode.Input);
 
-        PinValue prevPinValue = PinValue.Low;
+        PinValue button;
+        PinValue prevButton = false;
         bool isOn = false;
 
         while (true)
         {
-            PinValue button = controller.Read(12);
-            if (prevPinValue == PinValue.Low && button == PinValue.High)
+            button = controller.Read(12);
+            if (button == PinValue.High && prevButton != button)
+            {
                 isOn = !isOn;
-            prevPinValue = button;
+                if (isOn)
+                {
+                    controller.Write(10, PinValue.High);
+                }
+                else
+                {
+                    controller.Write(10, PinValue.Low);
+                }
+            }
+            prevButton= controller.Read(12);
+            Thread.Sleep(100);
         }
     }
 }
