@@ -17,7 +17,7 @@ public class Program {
         while (true)
         {
             button = controller.Read(12);
-            if (button == PinValue.High && prevButton != button)
+            if (button == PinValue.Low && prevButton != button)
             {
                 isOn = !isOn;
                 if (isOn)
