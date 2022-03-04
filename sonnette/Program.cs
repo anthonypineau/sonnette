@@ -8,6 +8,7 @@ public class Program {
         GpioController controller = new GpioController(PinNumberingScheme.Board);
 
         controller.OpenPin(10, PinMode.Output);
+        controller.OpenPin(9, PinMode.Input);
 
         while (true)
         {
@@ -15,7 +16,7 @@ public class Program {
             Thread.Sleep(1000);
             controller.Write(10, PinValue.High);
             Thread.Sleep(1000);
-
+            Console.WriteLine(controller.Read(9));
         }
     }
 }
