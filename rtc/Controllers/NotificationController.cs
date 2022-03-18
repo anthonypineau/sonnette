@@ -18,11 +18,13 @@ namespace sonnette.rtc.Controllers
             _hubContext = hubContext;
         }
 
-        // POST api/<SonetteController>
+        // POST api/<NotificationController>
         [HttpPost]
         public void Post([FromBody] Sonnette value)
         {
-            _hubContext.Clients.All.SendAsync("ReceiveMessage", "test", value.Id+" "+value.Date+" "+value.TypeAppui);
+            string message = "La sonnette n°"+value.Id+" a été pressée le "+value.Date
+                +"avec un appui de type "+value.TypeAppui;
+            _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
         }
     }
 }
