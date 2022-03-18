@@ -1,10 +1,12 @@
 using sonnette.rtc.Hubs;
+using sonnette.rtc.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddSignalR();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -25,5 +27,9 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapHub<ChatHub>("/chatHub");
+
+//app.MapGet("/", () => "Hello World!"); //Works
+
+app.MapControllers();
 
 app.Run();
