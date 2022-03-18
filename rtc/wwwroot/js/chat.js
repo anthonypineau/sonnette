@@ -12,7 +12,7 @@ connection.on("ReceiveMessage", function (message) {
 });
 
 connection.start().then(function () {
-    
+    console.log("test");
 }).catch(function (err) {
     return console.error(err.toString());
 });
