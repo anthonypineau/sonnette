@@ -27,6 +27,7 @@ namespace sonnette.rtc.Controllers
             _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
 
             return NoContent();
+            //return BadRequest();
         }
     }
 }
