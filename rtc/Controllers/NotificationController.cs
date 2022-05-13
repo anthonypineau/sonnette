@@ -22,6 +22,8 @@ namespace sonnette.rtc.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Sonnette value)
         {
+            //SonnetteDAO.Insert(value);
+
             string message = "La sonnette n°"+value.Id+" a été pressée le "+value.Date
                 +" avec un appui de type "+value.TypeAppui;
             _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
