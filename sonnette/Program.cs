@@ -1,12 +1,12 @@
 ﻿
 using Microsoft.Extensions.Configuration;
+using NLog;
 using sonnette.rasppi.Models;
 using System.Device.Gpio;
 using System.Device.Pwm;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-
 namespace sonnette.rasppi;
 
 public class Program {
@@ -15,6 +15,8 @@ public class Program {
     static int pinButton;
     static int sonnetteId;
     static int pinServoMotor;
+    private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
     public static void Main(string[] args) {
         Console.WriteLine("Hello, World!");
         
@@ -37,15 +39,16 @@ public class Program {
         controller.OpenPin(pinTransistor, PinMode.Output);
         controller.OpenPin(pinButton, PinMode.Input);
 
-        //SERVO
-        // LOW HELICE MEME SENS BOITIER
-        // controller.OpenPin(pinServoMotor, PinMode.Output);
-        //controller.OpenPin(pinServoMotor, PinMode.Input);
-        //Servo servo = new Servo(Device.CreatePwmPort(Device.Pins.D08), NamedServoConfigs.SG90);
-        //Console.WriteLine(controller.Read(pinServoMotor));
-        //controller.Write(pinServoMotor, PinValue.High);
 
-        PinValue button;
+    //SERVO
+    // LOW HELICE MEME SENS BOITIER
+    // controller.OpenPin(pinServoMotor, PinMode.Output);
+    //controller.OpenPin(pinServoMotor, PinMode.Input);
+    //Servo servo = new Servo(Device.CreatePwmPort(Device.Pins.D08), NamedServoConfigs.SG90);
+    //Console.WriteLine(controller.Read(pinServoMotor));
+    //controller.Write(pinServoMotor, PinValue.High);
+
+    PinValue button;
         PinValue prevButton = false;
         bool isOn = false;
         while (true) {
@@ -95,10 +98,12 @@ public class Program {
 
             }
             Console.WriteLine($"Status code returned {statusCode} ({(int)statusCode})");
+            logger.Info($"Status code returned {statusCode} ({(int)statusCode})");
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
+            logger.Error(e);
         }
 
         if (isGood)
