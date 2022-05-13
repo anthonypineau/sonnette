@@ -15,11 +15,11 @@ public class Program {
     static int pinButton;
     static int sonnetteId;
     static int pinServoMotor;
-    private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+    private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
     public static void Main(string[] args) {
         Console.WriteLine("Hello, World!");
-        
+
         // Build a config object, using env vars and JSON providers.
         IConfigurationBuilder builder = new ConfigurationBuilder();
 
@@ -98,12 +98,12 @@ public class Program {
 
             }
             Console.WriteLine($"Status code returned {statusCode} ({(int)statusCode})");
-            logger.Info($"Status code returned {statusCode} ({(int)statusCode})");
+            Logger.Info($"Status code returned {statusCode} ({(int)statusCode})");
         }
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-            logger.Error(e);
+            Logger.Error(e);
         }
 
         if (isGood)
