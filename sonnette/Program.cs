@@ -88,12 +88,76 @@ public class Program {
             switch (statusCode)
             {
                 case HttpStatusCode.OK:
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(1000);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    break;
                 case HttpStatusCode.Created:
                 case HttpStatusCode.Accepted:
                 case HttpStatusCode.NonAuthoritativeInformation:
                 case HttpStatusCode.NoContent:
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(300);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(300);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(300);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(300);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(300);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(300);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    break;
                 case HttpStatusCode.ResetContent:
-                    isGood = true;
+                default:
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.High);
+                    Thread.Sleep(100);
+                    controller.Write(pinTransistor, PinValue.Low);
+                    Thread.Sleep(100);
                     break;
 
             }
@@ -104,40 +168,6 @@ public class Program {
         {
             Console.WriteLine(e.Message);
             Logger.Error(e);
-        }
-
-        if (isGood)
-        {
-            controller.Write(pinTransistor, PinValue.High);
-            Thread.Sleep(1000);
-            controller.Write(pinTransistor, PinValue.Low);
-        }
-        else
-        {
-            controller.Write(pinTransistor, PinValue.High);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.Low);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.High);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.Low);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.High);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.Low);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.High);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.Low);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.High);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.Low);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.High);
-            Thread.Sleep(100);
-            controller.Write(pinTransistor, PinValue.Low);
-            Thread.Sleep(100);
         }
     }
 

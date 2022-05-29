@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sonnette.rasppi", "sonnette\sonnette.rasppi.csproj", "{F39A5D8C-D8A9-4651-924C-924EDFAE884C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sonnette.rtc", "rtc\sonnette.rtc.csproj", "{69E50ED1-2A8E-4072-9342-1FE2D1A466C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sonnette.rtc", "rtc\sonnette.rtc.csproj", "{69E50ED1-2A8E-4072-9342-1FE2D1A466C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

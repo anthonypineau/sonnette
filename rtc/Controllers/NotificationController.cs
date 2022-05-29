@@ -22,11 +22,14 @@ namespace sonnette.rtc.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Sonnette value)
         {
+            if (ChatHub.nePasDeranger)
+                return NoContent();
+
             string message = "La sonnette n°"+value.Id+" a été pressée le "+value.Date
                 +" avec un appui de type "+value.TypeAppui;
-            _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
+            _hubContext.Clients.All.SendAsync("ReceiveMessage", message+"fghgf");
 
-            return NoContent();
+            return Ok();
             //return BadRequest();
         }
     }
